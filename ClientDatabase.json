@@ -1,0 +1,52 @@
+[
+  {
+    "about": "cupidatat dolor est",
+    "name": "Rivers Petty",
+    "phone": "+1 (945) 488-2894",
+    "_id": "63285ff576cbd043ce93973f",
+    "email": "riverspetty@comdom.com",
+    "address": "597 Chester Court, Whitestone, Federated States Of Micronesia, 7931",
+    "user": "user1",
+    "password": "generatedPassword12345"
+  },
+  {
+    "about": "dolor veniam enim",
+    "name": "Browning Nichols",
+    "phone": "+1 (922) 563-3503",
+    "_id": "63285ff59432c0c6e00bebf4",
+    "email": "browningnichols@comdom.com",
+    "address": "651 Mayfair Drive, Haring, Guam, 242",
+    "user": "user1",
+    "password": "generatedPassword12345"
+  },
+  {
+    "about": "excepteur consectetur laboris",
+    "name": "Boone Kane",
+    "phone": "+1 (821) 547-3491",
+    "_id": "63285ff568e4bc79eb83e2b7",
+    "email": "boonekane@comdom.com",
+    "address": "931 Foster Avenue, Dahlen, Palau, 9729",
+    "user": "user1",
+    "password": "generatedPassword12345"
+  },
+  {
+    "about": "id dolor qui",
+    "name": "Elsa Palmer",
+    "phone": "+1 (972) 475-3946",
+    "_id": "63285ff5729dbfe500aa0a79",
+    "email": "elsapalmer@comdom.com",
+    "address": "359 Kings Hwy, Why, Puerto Rico, 3709",
+    "user": "user1",
+    "password": "generatedPassword12345"
+  },
+  {
+    "about": "elit nostrud consequat",
+    "name": "Sullivan Mcconnell",
+    "phone": "+1 (954) 581-3456",
+    "_id": "63285ff55d2c03b094cb224d",
+    "email": "sullivanmcconnell@comdom.com",
+    "address": "258 Church Avenue, Motley, Virgin Islands, 2771",
+    "user": "user1",
+    "password": "generatedPassword12345"
+  }
+]

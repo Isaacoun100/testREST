@@ -1,26 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
+using REST_API_MECATEC.Models;
 
 namespace REST_API_MECATEC.Controllers;
-
 [ApiController]
-[Route("[controller]")]
-public class UserController : ControllerBase
+[Route("login")]
+public class LoginController : ControllerBase
 {
-
+    
     private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public UserController(IWebHostEnvironment webHostEnvironment)
+    public LoginController(IWebHostEnvironment webHostEnvironment)
     {
         _webHostEnvironment = webHostEnvironment;
     }
 
-    [HttpGet(Name = "GetLogin")]
-    public String GetLogin()
+    [HttpGet]
+    [Route("get_users")]
+    public dynamic GetUsers()
     {
         var rootPath = _webHostEnvironment.ContentRootPath;
         var fullPath = Path.Combine(rootPath, "Database.json");
         var jsonData = System.IO.File.ReadAllText(fullPath);
         return jsonData;
+        
     }
-
 }
