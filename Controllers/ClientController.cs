@@ -31,4 +31,19 @@ public class ClientController : ControllerBase
         return specificClientData;
 
     }
+
+    [HttpPost]
+    [Route("save_client")]
+    public dynamic PostClient(Client client)
+    {
+        var jsonStr = Newtonsoft.Json.JsonConvert.SerializeObject(client);
+        Console.WriteLine(jsonStr);
+        System.IO.File.WriteAllText("ClientDatabaseTest.json",jsonStr);
+        return new
+        {
+            success = true,
+            message = "client saved",
+            result = client
+        };
+    }
 }

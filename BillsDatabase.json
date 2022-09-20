@@ -1,0 +1,172 @@
+[
+  {
+    "billID": "20245844097",
+    "service": "nostrud",
+    "servicePrice": 948,
+    "carPartsList": [
+      {
+        "carPart": "ullamco"
+      },
+      {
+        "carPart": "qui"
+      },
+      {
+        "carPart": "sit"
+      },
+      {
+        "carPart": "consequat"
+      }
+    ],
+    "carPartsListPrices": [
+      {
+        "price": "964"
+      },
+      {
+        "price": "886"
+      },
+      {
+        "price": "264"
+      },
+      {
+        "price": "541"
+      }
+    ],
+    "mechanic": "Buck Humphrey"
+  },
+  {
+    "billID": "7209916390",
+    "service": "aliqua",
+    "servicePrice": 844,
+    "carPartsList": [
+      {
+        "carPart": "culpa"
+      },
+      {
+        "carPart": "aute"
+      },
+      {
+        "carPart": "ea"
+      },
+      {
+        "carPart": "est"
+      }
+    ],
+    "carPartsListPrices": [
+      {
+        "price": "480"
+      },
+      {
+        "price": "810"
+      },
+      {
+        "price": "560"
+      },
+      {
+        "price": "398"
+      }
+    ],
+    "mechanic": "Robles Acosta"
+  },
+  {
+    "billID": "23156120981",
+    "service": "commodo",
+    "servicePrice": 247,
+    "carPartsList": [
+      {
+        "carPart": "consectetur"
+      },
+      {
+        "carPart": "magna"
+      },
+      {
+        "carPart": "nulla"
+      },
+      {
+        "carPart": "in"
+      }
+    ],
+    "carPartsListPrices": [
+      {
+        "price": "237"
+      },
+      {
+        "price": "692"
+      },
+      {
+        "price": "562"
+      },
+      {
+        "price": "173"
+      }
+    ],
+    "mechanic": "Sampson Moody"
+  },
+  {
+    "billID": "77435461639",
+    "service": "ullamco",
+    "servicePrice": 244,
+    "carPartsList": [
+      {
+        "carPart": "magna"
+      },
+      {
+        "carPart": "et"
+      },
+      {
+        "carPart": "consequat"
+      },
+      {
+        "carPart": "eu"
+      }
+    ],
+    "carPartsListPrices": [
+      {
+        "price": "489"
+      },
+      {
+        "price": "617"
+      },
+      {
+        "price": "868"
+      },
+      {
+        "price": "860"
+      }
+    ],
+    "mechanic": "Roberson Stafford"
+  },
+  {
+    "billID": "64809779666",
+    "service": "laboris",
+    "servicePrice": 698,
+    "carPartsList": [
+      {
+        "carPart": "aliqua"
+      },
+      {
+        "carPart": "adipisicing"
+      },
+      {
+        "carPart": "minim"
+      },
+      {
+        "carPart": "officia"
+      }
+    ],
+    "carPartsListPrices": [
+      {
+        "price": "249"
+      },
+      {
+        "price": "648"
+      },
+      {
+        "price": "810"
+      },
+      {
+        "price": "375"
+      }
+    ],
+    "mechanic": "Chelsea Alston"
+  }
+]

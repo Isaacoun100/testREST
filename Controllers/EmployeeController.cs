@@ -29,4 +29,19 @@ public class EmployeeController : ControllerBase
         return specificEmployeeData;
 
     }
+
+    [HttpPost]
+    [Route("save_employee")]
+    public dynamic PostEmployee(Employee employee)
+    {
+        var jsonStr = Newtonsoft.Json.JsonConvert.SerializeObject(employee);
+        Console.WriteLine(jsonStr);
+        System.IO.File.WriteAllText("EmployeeDatabaseTest.json",jsonStr);
+        return new
+        {
+            success = true,
+            message = "employee saved",
+            result = employee
+        };
+    }
 }
