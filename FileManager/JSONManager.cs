@@ -1,12 +1,18 @@
-﻿namespace REST_API_MECATEC.FileManager; 
+﻿using REST_API_MECATEC.DataBase;
 
+namespace REST_API_MECATEC.FileManager; 
+
+using Newtonsoft.Json;
 using System.Text.Json;
 
 public sealed class JSONManager {
     
-    private JsonElement loginInfo, client, employee;
     private static JSONManager _instance;
-    
+
+    public List<EmployeeObj> employeeList;
+    public List<ClientObj> clientList;
+    public List<LoginObj> loginList;
+
     public static JSONManager GetInstance() {
         if (_instance == null)
             _instance = new JSONManager();
@@ -14,58 +20,139 @@ public sealed class JSONManager {
     }
 
     public JSONManager() {
-        
-        loginInfo   = loadJSON(readWrite.ReadFile("DataBase/loginInfo.json"));
-        client      = loadJSON(readWrite.ReadFile("DataBase/clients.json"));
-        employee    = loadJSON(readWrite.ReadFile("DataBase/employee.json"));
-        
+
+        string loginInfo = readWrite.ReadFile("DataBase/loginInfo.json"),
+                clientInfo = readWrite.ReadFile("DataBase/clients.json") , 
+                employeeInfo = readWrite.ReadFile("DataBase/employee.json");
+
+        loginList   = JsonConvert.DeserializeObject<List<LoginObj>>(loginInfo);
+        clientList  = JsonConvert.DeserializeObject<List<ClientObj>>(clientInfo);
+        employeeList = JsonConvert.DeserializeObject<List<EmployeeObj>>(employeeInfo);
+
     }
 
-    private JsonElement loadJSON(string text) {
-        JsonDocument doc = JsonDocument.Parse(text);
-        JsonElement root = doc.RootElement;
-        return root;
+    public LoginObj getLogin(string username) {
+        for (int i = 0; i < loginList.Count; i++)
+            if (loginList[i].Equals(username))
+                return loginList[i];
+        return new LoginObj();
     }
 
-    public JsonElement getEmployee(string username) {
-        for (int i = 0; i < employee.GetArrayLength(); i++)
-            if (employee[i].GetProperty("email").ToString().Equals(username))
-                return employee[i];
-        return new JsonElement();
+    public EmployeeObj getEmployee(string username) {
+
+        for (int i = 0; i < employeeList.Count ; i++)
+            if (employeeList[i].email.Equals(username))
+                return employeeList[i];
+        return new EmployeeObj();
+
     }
     
-    public JsonElement getClient(string username) {
-        for (int i = 0; i < client.GetArrayLength(); i++)
-            if (client[i].GetProperty("email").ToString().Equals(username))
-                return client[i];
-        return new JsonElement();
+    public ClientObj getClient(string username) {
+        
+        for (int i = 0; i < clientList.Count ; i++)
+            if (clientList[i].email.Equals(username))
+                return clientList[i];
+        return new ClientObj();
+
     }
 
-    public JsonElement login(string username, string password) {
+    public string login(string username, string password) {
 
-        for (int i = 0; i < loginInfo.GetArrayLength(); i++) {
-            if (loginInfo[i].GetProperty("email").ToString().Equals(username) &&
-                loginInfo[i].GetProperty("password").ToString().Equals(password)) {
-                
-                if (username.Contains("mecatec.com"))
-                    return getEmployee(username);
-                return getClient(username);
+        for (int i = 0; i < loginList.Count; i++) {
+            if (loginList[i].email.Equals(username) &&
+                loginList[i].password.Equals(password)) {
 
+                if (username.Contains("mecatec.com")) {
+                    return System.Text.Json.JsonSerializer.Serialize(getEmployee(username));
+                }
+                return System.Text.Json.JsonSerializer.Serialize(getClient(username));
             }
         }
-        return new JsonElement();
+
+        return string.Empty;
 
     }
 
     public void setClientEmail(string username, string newEmail) {
-
-        JsonElement clientJSON = getClient(username);
-        
-        clientJSON.
-        
+        getClient(username).email = newEmail;
+        getLogin(username).email = newEmail;
+    }
+    
+    public void setClientPassword(string username, string newPassword) {
+        getClient(username).password = newPassword;
+        getLogin(username).password = newPassword;
+    }
+    
+    public void setClientFirstName(string username, string newName) {
+        getClient(username).firstName = newName;
+    }
+    
+    public void setClientLastName(string username, string newLastName) {
+        getClient(username).lastName = newLastName;
+    }
+    
+    public void setClientID(string username, int newID) {
+        getClient(username).ID = newID;
+    }
+    
+    public void setClientPhone(string username, int newPhone) {
+        getClient(username).ID = newPhone;
+    }
+    
+    public void setClientInfo(string username, string newInfo) {
+        getClient(username).info = newInfo;
+    }
+    
+    public void setClientZipCode(string username, int newZipCode) {
+        getClient(username).zipCode = newZipCode;
     }
 
+    public void setEmployeeEmail(string username, string newEmail) {
+        getEmployee(username).email = newEmail;
+        getLogin(username).email = newEmail;
+
+    }
+    
+    public void setEmployeePassword(string username, string newPassword) {
+        getEmployee(username).password = newPassword;
+        getLogin(username).password = newPassword;
+    }
+
+    public void setEmployeeFirstName(string username, string newFirstName) {
+        getEmployee(username).firstName = newFirstName;
+    }
+
+    public void setEmployeeLastName(string username, string newLastName) {
+        getEmployee(username).lastName = newLastName;
+    }
+    
+    public void setEmployeeID(string username, int newID) {
+        getEmployee(username).ID = newID;
+    }
+
+    public void setEmployeeStartingDate(string username, string newStartingDate) {
+        getEmployee(username).startingDate = newStartingDate;
+    }
+    
+    public void setEmployeeBirthDate(string username, string newBirthDate) {
+        getEmployee(username).birthDate = newBirthDate;
+    }
+    
+    public void setEmployeeAge(string username, int newAge) {
+        getEmployee(username).age = newAge;
+    }
+    
+    public void setEmployeeRoll(string username, string newRoll) {
+        getEmployee(username).roll = newRoll;
+    }
+
+    public void saveInfo() {
+        readWrite.WriteFile(System.Text.Json.JsonSerializer.Serialize(loginList),"DataBase/loginInfo.json");
+        readWrite.WriteFile(System.Text.Json.JsonSerializer.Serialize(employeeList),"DataBase/employee.json");
+        readWrite.WriteFile(System.Text.Json.JsonSerializer.Serialize(clientList),"DataBase/clients.json");
+    }
 }
+
 
 class Program {
     public static void Main() { }
