@@ -12,7 +12,7 @@ public class readWrite {
      */
     public static string ReadFile(string path) {
         
-        var str = "{}";
+        var str = "[]";
         if (File.Exists(path)) 
             str = File.ReadAllText(path);
         return str;

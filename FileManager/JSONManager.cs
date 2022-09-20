@@ -2,15 +2,62 @@
 
 using System.Text.Json;
 
-public class JSONManager {
+public sealed class JSONManager {
 
-    public static void Main() { }
+    private JsonElement loginInfo, client, employee;
 
+    public JSONManager() {
+        loginInfo = loadJSON(readWrite.ReadFile("DataBase/loginInfo.json"));
+        client = loadJSON(readWrite.ReadFile("DataBase/clients.json"));
+        employee = loadJSON(readWrite.ReadFile("DataBase/employee.json"));
+    }
+    
+    private static JSONManager _instance;
+    
+    public static JSONManager GetInstance() {
+        if (_instance == null)
+            _instance = new JSONManager();
+        return _instance;
+    }
+    
     public JsonElement loadJSON(string text) {
         JsonDocument doc = JsonDocument.Parse(text);
         JsonElement root = doc.RootElement;
         return root;
     }
+
+    public JsonElement getEmployee(string username) {
+        for (int i = 0; i < employee.GetArrayLength(); i++)
+            if (employee[i].GetProperty("email").ToString().Equals(username))
+                return employee[i];
+        return new JsonElement();
+    }
     
-    
+    public JsonElement getClient(string username) {
+        for (int i = 0; i < client.GetArrayLength(); i++)
+            if (client[i].GetProperty("email").ToString().Equals(username))
+                return client[i];
+        return new JsonElement();
+    }
+
+    public JsonElement login(string username, string password) {
+
+        for (int i = 0; i < loginInfo.GetArrayLength(); i++) {
+            if (loginInfo[i].GetProperty("email").ToString().Equals(username) &&
+                loginInfo[i].GetProperty("password").ToString().Equals(password)) {
+                
+                if (username.Contains("mecatec.com"))
+                    return getEmployee(username);
+                return getClient(username);
+
+            }
+        }
+        return new JsonElement();
+
+    }
+
+}
+
+class Program {
+    public static void Main() { }
 }
