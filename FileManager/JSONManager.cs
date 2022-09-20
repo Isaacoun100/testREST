@@ -3,15 +3,8 @@
 using System.Text.Json;
 
 public sealed class JSONManager {
-
-    private JsonElement loginInfo, client, employee;
-
-    public JSONManager() {
-        loginInfo = loadJSON(readWrite.ReadFile("DataBase/loginInfo.json"));
-        client = loadJSON(readWrite.ReadFile("DataBase/clients.json"));
-        employee = loadJSON(readWrite.ReadFile("DataBase/employee.json"));
-    }
     
+    private JsonElement loginInfo, client, employee;
     private static JSONManager _instance;
     
     public static JSONManager GetInstance() {
@@ -19,8 +12,16 @@ public sealed class JSONManager {
             _instance = new JSONManager();
         return _instance;
     }
-    
-    public JsonElement loadJSON(string text) {
+
+    public JSONManager() {
+        
+        loginInfo   = loadJSON(readWrite.ReadFile("DataBase/loginInfo.json"));
+        client      = loadJSON(readWrite.ReadFile("DataBase/clients.json"));
+        employee    = loadJSON(readWrite.ReadFile("DataBase/employee.json"));
+        
+    }
+
+    private JsonElement loadJSON(string text) {
         JsonDocument doc = JsonDocument.Parse(text);
         JsonElement root = doc.RootElement;
         return root;
@@ -54,6 +55,14 @@ public sealed class JSONManager {
         }
         return new JsonElement();
 
+    }
+
+    public void setClientEmail(string username, string newEmail) {
+
+        JsonElement clientJSON = getClient(username);
+        
+        clientJSON.
+        
     }
 
 }
