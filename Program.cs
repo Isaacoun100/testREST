@@ -1,3 +1,5 @@
+using REST_API_MECATEC.FileManager;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,3 +25,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+JSONManager.GetInstance().saveInfo();
