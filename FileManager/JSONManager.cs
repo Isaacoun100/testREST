@@ -146,6 +146,30 @@ public sealed class JSONManager {
         getEmployee(username).roll = newRoll;
     }
 
+    public void addClient(string clientJson) {
+        ClientObj newClient = JsonConvert.DeserializeObject<ClientObj>(clientJson);
+        if (newClient != null) clientList.Add(newClient);
+
+        LoginObj loginObj = new LoginObj();
+        loginObj.email = newClient.email;
+        loginObj.password = newClient.password;
+        
+        loginList.Add(loginObj);
+
+    }
+    
+    public void addEmployee(string employeeJson) {
+        EmployeeObj newEmployee = JsonConvert.DeserializeObject<EmployeeObj>(employeeJson);
+        if (newEmployee != null) clientList.Add(newEmployee);
+
+        LoginObj loginObj = new LoginObj();
+        loginObj.email = newEmployee.email;
+        loginObj.password = newEmployee.password;
+        
+        loginList.Add(loginObj);
+
+    }
+
     public void saveInfo() {
         readWrite.WriteFile(System.Text.Json.JsonSerializer.Serialize(loginList),"DataBase/loginInfo.json");
         readWrite.WriteFile(System.Text.Json.JsonSerializer.Serialize(employeeList),"DataBase/employee.json");
