@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Sadie",
+    "lastname": "Pope",
+    "_id": "632835857d2475ff7231f34c",
+    "registered": "2014-07-27T01:53:00 +06:00",
+    "bdate": "2022-06-16T08:24:24 +06:00",
+    "age": 25,
+    "password": 43248402,
+    "role": "mecanico"
+  },
+  {
+    "name": "Joyce",
+    "lastname": "Contreras",
+    "_id": "63283585c70cf7dfa2f8aeda",
+    "registered": "2019-09-03T10:17:24 +06:00",
+    "bdate": "2014-03-22T06:24:59 +06:00",
+    "age": 23,
+    "password": 38073728,
+    "role": "mecanico"
+  },
+  {
+    "name": "Munoz",
+    "lastname": "Murray",
+    "_id": "6328358572891febe4d20ef8",
+    "registered": "2014-08-25T11:58:52 +06:00",
+    "bdate": "2014-01-27T09:01:47 +06:00",
+    "age": 30,
+    "password": 2207123,
+    "role": "mecanico"
+  },
+  {
+    "name": "Brown",
+    "lastname": "Norris",
+    "_id": "63283585d2a9b50f05f08efc",
+    "registered": "2017-11-24T11:51:30 +06:00",
+    "bdate": "2017-07-29T01:57:53 +06:00",
+    "age": 31,
+    "password": 11371440,
+    "role": "mecanico"
+  },
+  {
+    "name": "Dunlap",
+    "lastname": "Roy",
+    "_id": "632835850ef0ffadb75a60dc",
+    "registered": "2015-01-23T01:05:39 +06:00",
+    "bdate": "2014-08-07T07:43:46 +06:00",
+    "age": 39,
+    "password": 82343844,
+    "role": "mecanico"
+  },
+  {
+    "name": "Baker",
+    "lastname": "Mills",
+    "_id": "632835858952afdd202b2541",
+    "registered": "2018-12-11T08:16:32 +06:00",
+    "bdate": "2015-04-18T04:59:37 +06:00",
+    "age": 40,
+    "password": 31429062,
+    "role": "mecanico"
+  },
+  {
+    "name": "Kelly",
+    "lastname": "Bowers",
+    "_id": "63283585f3180d499980bd34",
+    "registered": "2022-08-19T03:10:24 +06:00",
+    "bdate": "2018-11-11T03:01:50 +06:00",
+    "age": 32,
+    "password": 784080,
+    "role": "mecanico"
+  }
+]
