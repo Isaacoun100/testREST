@@ -160,7 +160,7 @@ public sealed class JSONManager {
     
     public void addEmployee(string employeeJson) {
         EmployeeObj newEmployee = JsonConvert.DeserializeObject<EmployeeObj>(employeeJson);
-        if (newEmployee != null) clientList.Add(newEmployee);
+        if (newEmployee != null) employeeList.Add(newEmployee);
 
         LoginObj loginObj = new LoginObj();
         loginObj.email = newEmployee.email;
